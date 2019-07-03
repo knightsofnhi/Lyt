@@ -1,0 +1,25 @@
+{
+  "name": "Project2JKN",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knightsofnhi/Project2JKN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knightsofnhi/Project2JKN/issues"
+  },
+  "homepage": "https://github.com/knightsofnhi/Project2JKN#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "sequel": "^0.3.10"
+  }
+}
