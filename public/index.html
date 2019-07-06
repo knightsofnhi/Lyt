@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lyt - Find your band.</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="./assets/style/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <a class="navbar-brand" href="./index.html">Lyt - Find your band.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./login.html">Login</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sign Up
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./artist-signup.html">Artist</a>
+                        <a class="dropdown-item" href="./venue-signup.html">Venue</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-area bg-1 text-center overly">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-block">
+                        <h1>Lyt</h1>
+                        <p>A curated booking concierge for venues to secure top local talent.</p>
+                    </div>
+                    <div class="advance-search">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 align-content-center">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-2"></div>
+                                            <div class="form-group col-md-4">
+                                                <select class="w-100 form-control">
+                                                    <option>Type of Band</option>
+                                                    <option value="1">Rock Band</option>
+                                                    <option value="2">Indie Band</option>
+                                                    <option value="4">Folk Band</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <input type="text" class="form-control" id="inputLocation4"
+                                                    placeholder="Location">
+                                            </div>
+                                            <div class="form-group col-md-2"></div>
+                                            <div class="form-group col-md-12 align-self-center">
+                                                <button type="submit" class="btn btn-primary">Find Your Band</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer section section-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0">
+                    <p class="alt-color">Footer information goes here</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'
+        integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'>
+        </script>
+    <script>
+        $(document).ready(() => {
+            $.get("/api/products").then((results) => {
+                // build out some table or something
+                console.log(results);
+                $(".products").empty();
+                results.forEach(product => $(".products")
+                    .append(`<div><a href="/product/${product.id}">${product.name}</a> - $${product.price} <button data-product-id="${product.id}" class="btn btn-success">Add To Cart</div>`));
+            });
+        });
+    </script>
+</body>
+
+</html>
