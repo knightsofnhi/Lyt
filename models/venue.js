@@ -5,19 +5,7 @@ module.exports = function (sequelize, DataTypes) {
         venueManager: DataTypes.DOUBLE,
         venuePhone: DataTypes.STRING,
         venueEmail: DataTypes.STRING,
-    }
-    {
-        const Artist = sequelize.define("Artist", {
-        artistName: DataTypes.STRING,
-        artistLocaton: DataTypes.STRING,
-        artistMembers: DataTypes.STRING,
-        artistManager: DataTypes.DOUBLE,
-        artistPhone: DataTypes.STRING,
-        artistEmail: DataTypes.STRING,
-        })
-    }
-    );
+    });
 
     return Venue;
-    return Artist;
 }
