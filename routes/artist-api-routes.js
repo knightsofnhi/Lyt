@@ -1,44 +1,44 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/authors", function(req, res) {
+  app.get("/api/Lyt", function(req, res) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
-    db.Author.findAll({
+    db.Lyt.findAll({
       include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbLyt) {
+      res.json(dbLyt);
     });
   });
 
-  app.get("/api/authors/:id", function(req, res) {
+  app.get("/api/Lyt/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
-    db.Author.findOne({
+    db.Lyt.findOne({
       where: {
         id: req.params.id
       },
       include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbLyt) {
+      res.json(dbLyt);
     });
   });
 
-  app.post("/api/authors", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
+  app.post("/api/Lyt", function(req, res) {
+    db.Lyt.create(req.body).then(function(dbLyt) {
+      res.json(dbLyt);
     });
   });
 
-  app.delete("/api/authors/:id", function(req, res) {
-    db.Author.destroy({
+  app.delete("/api/Lyt/:id", function(req, res) {
+    db.Lyt.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbLyt) {
+      res.json(dbLyt);
     });
   });
 
