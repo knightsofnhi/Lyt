@@ -8,7 +8,9 @@
     <title>Lyt - Find your band.</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link href="./assets/style/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/LYT-favicon.png" />
 </head>
 
 <body>
@@ -26,15 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./login.html">Login</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sign Up
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./artist-signup.html">Artist</a>
-                        <a class="dropdown-item" href="./venue-signup.html">Venue</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="./artist-signup.html">Artist Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./venue-signup.html">Venue Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -51,30 +49,25 @@
                         </div>
                         <div class="col-lg-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Name of Venue</h6>
-                            <input type="text" class="border w-100 p-2 bg-white" placeholder="Venue name">
+                            <input type="text" class="border w-100 p-2 bg-white text-capitalize"
+                                placeholder="venue name" id="venue-name">
                             <h6 class="font-weight-bold pt-4 pb-1">Location</h6>
-                            <input type="text" class="border w-100 p-2 bg-white" placeholder="Location">
+                            <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Location"
+                                id="venue-location">
                             <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
                             <textarea name="" id="" class="border p-3 w-100" rows="7"
-                                placeholder="Share some information about your venue!"></textarea>
+                                placeholder="Share some information about your venue!"
+                                id="venue-description"></textarea>
                         </div>
                         <div class="col-lg-6">
-                            <h6 class="font-weight-bold pt-4 pb-1">Select Band Genre</h6>
-                            <select name="" id="inputGroupSelect" class="w-100">
-                                <option value="1">Select category</option>
-                                <option value="2">Rock band</option>
-                                <option value="3">Indie band</option>
-                                <option value="4">Folk band</option>
-                            </select>
+                            <h6 class="font-weight-bold pt-4 pb-1">Genre</h6>
+                            <input type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Genre"
+                                id="venue-genre">
                             <div class="price">
-                                <h6 class="font-weight-bold pt-4 pb-1">Rates per hour ($USD):</h6>
+                                <h6 class="font-weight-bold pt-4 pb-1">Rates per hour ($USD)</h6>
                                 <div class="row px-3">
                                     <input type="text" class="border w-100 p-2 bg-white text-capitalize"
-                                        placeholder="Rates">
-                                    <div class="col-lg-4 mrx-4 rounded bg-white my-2 ">
-                                        <input type="checkbox" value="Negotiable" id="Negotiable">
-                                        <label for="Negotiable" class="py-2">Negotiable</label>
-                                    </div>
+                                        placeholder="Rates" id="venue-rates">
                                 </div>
                             </div>
                             <div class="choose-file text-center my-4 py-4 rounded">
@@ -83,7 +76,8 @@
                                     <span class="d-block btn bg-primary text-white my-3 select-files">Select
                                         files</span>
                                     <span class="d-block">Maximum upload file size: 500 KB</span>
-                                    <input type="file" class="form-control-file d-none" id="file-upload" name="file">
+                                    <input type="file" class="form-control-file d-none" id="venue-file-upload"
+                                        name="file">
                                 </label>
                             </div>
                         </div>
@@ -91,29 +85,88 @@
                 </fieldset>
 
                 <!-- contact information -->
-                <fieldset class="border p-4 my-5 seller-information bg-gray">
+                <fieldset class="border p-4 my-5 bg-gray">
                     <div class="row">
                         <div class="col-lg-12">
                             <h3>Contact Information</h3>
                         </div>
-                        <div class="col-lg-6">
-                            <h6 class="font-weight-bold pt-4 pb-1">Contact Name:</h6>
-                            <input type="text" placeholder="Contact name" class="border w-100 p-2">
-                            <h6 class="font-weight-bold pt-4 pb-1">Contact Number:</h6>
-                            <input type="text" placeholder="Contact number" class="border w-100 p-2">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Contact Name</h6>
+                            <input type="text" placeholder="Contact name" class="border w-100 p-2"
+                                id="venue-contact-name">
                         </div>
-                        <div class="col-lg-6">
-                            <h6 class="font-weight-bold pt-4 pb-1">Contact Email:</h6>
-                            <input type="email" placeholder="name@yourmail.com" class="border w-100 p-2">
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Contact Number</h6>
+                            <input type="text" placeholder="Contact Number" class="border w-100 p-2"
+                                id="venue-contact-number">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="border p-4 my-5 bg-gray">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Account Information</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Account Email</h6>
+                            <input type="email" placeholder="Email" class="border w-100 p-2" id="venue-email">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Account Password</h6>
+                            <input type="email" placeholder="Password" class="border w-100 p-2" id="venue-password">
                         </div>
                     </div>
                 </fieldset>
 
                 <!-- submit -->
-                <button type="submit" class="btn btn-primary d-block mt-2">Sign Up</button>
+                <button type="submit" class="btn btn-primary d-block mt-2" id="venue-submit">Sign Up</button>
             </form>
         </div>
     </section>
+
 </body>
+<script type="text/javascript">
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
+
+        const newvenue = {
+            venueName: $("#venue-name").val().trim(),
+            venueLocation: $("#venue-location").val().trim(),
+            venueDescription: $("#venue-description").val().trim(),
+            venueGenre: $("#venue-genre").val().trim(),
+            venueRates: $("venue-rates").val().trim(),
+            venuePhoto: $("venue-file-upload").val().trim(),
+            venueContactName: $("venue-contact-name").val().trim(),
+            venueContactNumber: $("venue-contact-number").val().trim(),
+            venueEmail: $("venue-email").val().trim(),
+            venuePassword: $("venue-password").val().trim()
+        };
+
+        console.log(newvenue);
+
+        $.post("/api/venues", newvenue,
+            function (data) {
+                if (data) {
+                    alert("Congrats! You're the newest Lyt user!")
+                }
+                $("#venue-name").val("");
+                $("#venue-location").val("");
+                $("#venue-description").val("");
+                $("#venue-genre").val("");
+                $("venue-rates").val("");
+                $("venue-file-upload").val("");
+                $("venue-contact-name").val("");
+                $("venue-contact-number").val("");
+                $("venue-email").val("");
+                $("venue-password").val("");
+            });
+    });
+
+</script>
 
 </html>

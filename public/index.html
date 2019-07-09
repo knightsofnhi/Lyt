@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lyt - Find your band.</title>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'
+        integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'>
+        </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="./assets/style/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/LYT-favicon.png" />
 </head>
 
 <body>
@@ -27,21 +31,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./login.html">Login</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sign Up
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./artist-signup.html">Artist</a>
-                        <a class="dropdown-item" href="./venue-signup.html">Venue</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="./artist-signup.html">Artist Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./venue-signup.html">Venue Sign Up</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero-area bg-1 text-center overly">
+    <section class="main-area bg-1 text-center overly" id="main-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -49,7 +49,7 @@
                         <h1>Lyt</h1>
                         <p>A curated booking concierge for venues to secure top local talent.</p>
                     </div>
-                    <div class="advance-search">
+                    <div class="search">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-md-12 align-content-center">
@@ -93,9 +93,6 @@
         </div>
     </footer>
 
-    <script src='https://code.jquery.com/jquery-3.3.1.min.js'
-        integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'>
-        </script>
     <script>
         $(document).ready(() => {
             $.get("/api/products").then((results) => {
