@@ -1,32 +1,37 @@
-### Schema - Venue
-DROP DATABASE IF EXISTS venue_db;
-CREATE DATABASE venue_db;
-USE venue_db;
-
-CREATE TABLE venues
-(
-	id int NOT NULL AUTO_INCREMENT,
-	venueName varchar(255) NOT NULL,
-    venueLocation varchar (255) NOT NULL,
-    venueManager varchar (255) NOT NULL,
-    venuePhone int (20) NOT NULL,
-    venueEmail varchar (255) NOT NULL,
-	PRIMARY KEY (id)
-);
-
-### Schema
+DROP DATABASE IF EXISTS lyt_db;
 DROP DATABASE IF EXISTS artist_db;
-CREATE DATABASE artist_db;
-USE artist_db;
+Drop DATABASE IF EXISTS venue_db;
+CREATE DATABASE lyt_db;
+USE lyt_db;
 
-CREATE TABLE artists
-(
-	id int NOT NULL AUTO_INCREMENT,
-	artistName varchar(255) NOT NULL,
-    artistLocation varchar (255) NOT NULL,
-    artistMembers int (2) NOT NULL,
-    artistManager varchar (255),
-    artistPhone int (20) NOT NULL,
-    artistEmail varchar (255) NOT NULL,
-	PRIMARY KEY (id)
+CREATE TABLE artists(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  artistName VARCHAR(100) NOT NULL,
+  artistMembers INT(3) NOT NULL,
+  artistLocation VARCHAR(225) NOT NULL,
+  artistContactName VARCHAR(225) NOT NULL,
+  artistContactPhone INT(14) NOT NULL,
+  artistContactEmail VARCHAR(225) NOT NULL,
+  PRIMARY KEY (id)
 );
+
+CREATE TABLE venues(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  venueName VARCHAR(225) NOT NULL,
+  venueLocation VARCHAR(225),
+  venueContactName VARCHAR(225),
+  venueContactPhone INT(14),
+  venueContactEmail VARCHAR(225),
+  PRIMARY KEY (id)
+);
+
+INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, artistContactPhone, artistContactEmail) 
+values ('Targus Targus', 6, 'Allston', 'Dave H.', 2521565455, 'targus@gmail.com');
+
+INSERT INTO venues (venueName, venueLocation, venueContactName, venueContactPhone, 
+venueContactEmail) 
+values ('Out of the Blue Art Gallery', 'Allston', 'Manager Name', 1236547898, 
+'manager@email.com');
+
+SELECT * FROM artists;
+SELECT * FROM venues;
