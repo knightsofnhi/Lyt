@@ -3,10 +3,10 @@ module.exports = function (sequelize, DataTypes) {
         artistName: DataTypes.STRING,
         artistLocaton: DataTypes.STRING,
         artistMembers: DataTypes.STRING,
-        artistManager: DataTypes.DOUBLE,
-        artistPhone: DataTypes.STRING,
-        artistEmail: DataTypes.STRING,
+        artistContactName: DataTypes.DOUBLE,
+        artistContactPhone: DataTypes.STRING,
+        artistContactEmail: DataTypes.STRING,
         });
 
-    return Venue;
+    return Lyt;
 }
