@@ -17,9 +17,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/lyt.html"));
   });
 
-  // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  // lyt route loads lyt.html
+  app.get("/lyt", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/lyt.html"));
   });
 
   // lyt route loads lyt.html
