@@ -1,8 +1,8 @@
 $(document).ready(function() {
   /* global moment */
 
-  // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
+  // venuesContainer holds all of our posts
+  var venuesContainer = $(".venues-container");
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
@@ -10,31 +10,31 @@ $(document).ready(function() {
   // Variable to hold our posts
   var posts;
 
-  // The code below handles the case where we want to get blog posts for a specific author
-  // Looks for a query param in the url for author_id
+  // The code below handles the case where we want to get venues posts for a specific Artists
+  // Looks for a query param in the url for Artists_id
   var url = window.location.search;
-  var authorId;
-  if (url.indexOf("?author_id=") !== -1) {
-    authorId = url.split("=")[1];
-    getPosts(authorId);
+  var ArtistsId;
+  if (url.indexOf("?Artists_id=") !== -1) {
+    ArtistsId = url.split("=")[1];
+    getPosts(ArtistsId);
   }
-  // If there's no authorId we just get all posts as usual
+  // If there's no ArtistsId we just get all posts as usual
   else {
     getPosts();
   }
 
 
   // This function grabs posts from the database and updates the view
-  function getPosts(author) {
-    authorId = author || "";
-    if (authorId) {
-      authorId = "/?author_id=" + authorId;
+  function getPosts(Artists) {
+    ArtistsId = Artists || "";
+    if (ArtistsId) {
+      ArtistsId = "/?Artists_id=" + ArtistsId;
     }
-    $.get("/api/posts" + authorId, function(data) {
+    $.get("/api/posts" + ArtistsId, function(data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
-        displayEmpty(author);
+        displayEmpty(Artists);
       }
       else {
         initializeRows();
@@ -53,14 +53,14 @@ $(document).ready(function() {
       });
   }
 
-  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
+  // InitializeRows handles appending all of our constructed post HTML inside venuesContainer
   function initializeRows() {
-    blogContainer.empty();
+    venuesContainer.empty();
     var postsToAdd = [];
     for (var i = 0; i < posts.length; i++) {
       postsToAdd.push(createNewRow(posts[i]));
     }
-    blogContainer.append(postsToAdd);
+    venuesContainer.append(postsToAdd);
   }
 
   // This function constructs a post's HTML
@@ -79,9 +79,9 @@ $(document).ready(function() {
     editBtn.addClass("edit btn btn-info");
     var newPostTitle = $("<h2>");
     var newPostDate = $("<small>");
-    var newPostAuthor = $("<h5>");
-    newPostAuthor.text("Written by: " + post.Author.name);
-    newPostAuthor.css({
+    var newPostArtists = $("<h5>");
+    newPostArtists.text("Written by: " + post.Artists.name);
+    newPostArtists.css({
       float: "right",
       color: "blue",
       "margin-top":
@@ -97,7 +97,7 @@ $(document).ready(function() {
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPostAuthor);
+    newPostCardHeading.append(newPostArtists);
     newPostCardBody.append(newPostBody);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
@@ -120,7 +120,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
+    window.location.href = "/lyt?post_id=" + currentPost.id;
   }
 
   // This function displays a message when there are no posts
@@ -128,14 +128,14 @@ $(document).ready(function() {
     var query = window.location.search;
     var partial = "";
     if (id) {
-      partial = " for Author #" + id;
+      partial = " for Artists #" + id;
     }
-    blogContainer.empty();
+    venuesContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
+    messageH2.html("No posts yet" + partial + ", navigate <a href='/lyt" + query +
     "'>here</a> in order to get started.");
-    blogContainer.append(messageH2);
+    venuesContainer.append(messageH2);
   }
 
 });
