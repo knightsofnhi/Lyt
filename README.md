@@ -1,4 +1,4 @@
-# Project2JKN]
+# Project2JKN
 
 No more bookers. No more Craigslist. No more middleman. 
 
