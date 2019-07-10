@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "sequel": "^0.3.10"
+    "sequel": "^0.3.10",
+    "sequelize": "^5.9.4"
   }
 }
