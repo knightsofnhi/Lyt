@@ -89,6 +89,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(() => {
+            $.get("/api/products").then((results) => {
+                // build out some table or something
+                console.log(results);
+                $(".products").empty();
+                results.forEach(product => $(".products")
+                    .append(`<div><a href="/product/${product.id}">${product.name}</a> - $${product.price} <button data-product-id="${product.id}" class="btn btn-success">Add To Cart</div>`));
+            });
+        });
+    </script>
 </body>
 
 </html>
