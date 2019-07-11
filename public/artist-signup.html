@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-md-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Account Password</h6>
-                            <input type="email" placeholder="Password" class="border w-100 p-2" id="band-password">
+                            <input type="text" placeholder="Password" class="border w-100 p-2" id="band-password">
                         </div>
                     </div>
                 </fieldset>
@@ -125,44 +125,29 @@
         </div>
     </section>
 
-</body>
-<script type="text/javascript">
-    $(".submit").on("click", function (event) {
-        event.preventDefault();
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
-        const newBand = {
-            bandName: $("#band-name").val().trim(),
-            bandLocation: $("#band-location").val().trim(),
-            bandDescription: $("#band-description").val().trim(),
-            bandGenre: $("#band-genre").val().trim(),
-            bandRates: $("band-rates").val().trim(),
-            bandPhoto: $("band-file-upload").val().trim(),
-            bandContactName: $("band-contact-name").val().trim(),
-            bandContactNumber: $("band-contact-number").val().trim(),
-            bandEmail: $("band-email").val().trim(),
-            bandPassword: $("band-password").val().trim()
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCzkJqVyB5kTN0ZxBvkYrmAlEDE00EVARs",
+            authDomain: "lyt-findyourband.firebaseapp.com",
+            databaseURL: "https://lyt-findyourband.firebaseio.com",
+            projectId: "lyt-findyourband",
+            storageBucket: "lyt-findyourband.appspot.com",
+            messagingSenderId: "1009794232137",
+            appId: "1:1009794232137:web:35a0d950cc290695"
         };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 
-        console.log(newBand);
-
-        $.post("/api/bands", newBand,
-            function (data) {
-                if (data) {
-                    alert("Congrats! You're the newest Lyt user!")
-                }
-                $("#band-name").val("");
-                $("#band-location").val("");
-                $("#band-description").val("");
-                $("#band-genre").val("");
-                $("band-rates").val("");
-                $("band-file-upload").val("");
-                $("band-contact-name").val("");
-                $("band-contact-number").val("");
-                $("band-email").val("");
-                $("band-password").val("");
-            });
-    });
-
-</script>
+    </script>
+    <script src="./js/firebase.js"></script>
+</body>
 
 </html>
