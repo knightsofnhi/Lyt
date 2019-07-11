@@ -36,41 +36,11 @@
         </div>
     </nav>
 
-    <!-- <section class="login">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 align-item-center">
-                    <div class="border">
-                        <h3 class="bg-gray p-4 text-center">Login Now</h3>
-                        <form action="#">
-                            <fieldset class="p-4">
-                                <input type="email" placeholder="Email" id="email_field" class="border p-3 w-100 my-2">
-                                <input type="password" placeholder="Password" id="password_field"
-                                    class="border p-3 w-100 my-2">
-                                <button type="submit" class="d-block px-5 bg-primary text-white" id="login">Log
-                                    in</button><br>
-                                <p class="text-center">Don't have an account? Sign up now!</p>
-                                <a class="mt-3 d-inline-block text-primary" href="./artist-signup.html">Sign
-                                    Up As
-                                    Artist</a><br>
-                                <a class="mt-3 d-inline-block text-primary" href="./venue-signup.html">Sign
-                                    Up As
-                                    Venue</a>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <div class="container" id="firebaseui-auth-container"></div>
     <div id="loader"></div>
 
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
 
     <script>
@@ -95,45 +65,26 @@
                     var isNewUser = authResult.additionalUserInfo.isNewUser;
                     var providerId = authResult.additionalUserInfo.providerId;
                     var operationType = authResult.operationType;
-                    // Do something with the returned AuthResult.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
                     return true;
                 },
                 signInFailure: function (error) {
-                    // Some unrecoverable error occurred during sign-in.
-                    // Return a promise when error handling is completed and FirebaseUI
-                    // will reset, clearing any UI. This commonly occurs for error code
-                    // 'firebaseui/anonymous-upgrade-merge-conflict' when merge conflict
-                    // occurs. Check below for more details on this.
                     return handleUIError(error);
                 },
                 uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
                     document.getElementById('loader').style.display = 'none';
                 }
             },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
             signInSuccessUrl: "./profile.html",
             signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
                 {
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                    // Whether the display name should be displayed in the Sign Up page.
                     requireDisplayName: true
                 }],
-            // Set to true if you only have a single federated provider like
-            // firebase.auth.GoogleAuthProvider.PROVIDER_ID and you would like to
-            // immediately redirect to the provider's site instead of showing a
-            // 'Sign in with Provider' button first. In order for this to take
-            // effect, the signInFlow option must also be set to 'redirect'.
             immediateFederatedRedirect: false,
         };
 
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
 
     </script>
