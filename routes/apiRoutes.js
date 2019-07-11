@@ -1,24 +1,24 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all artists
+  app.get("/api/artists", function(req, res) {
+    db.Artists.findAll({}).then(function(dbArtists) {
+      res.json(dbArtists);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new artists
+  app.post("/api/artists", function(req, res) {
+    db.Artists.create(req.body).then(function(dbArtists) {
+      res.json(dbArtists);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Delete an artists by id
+  app.delete("/api/artists/:id", function(req, res) {
+    db.Artists.destroy({ where: { id: req.params.id } }).then(function(dbArtists) {
+      res.json(dbArtists);
     });
   });
 };

@@ -3,6 +3,6 @@ const path = require("path");
 
 router.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, "../public/index.html")));
-router.get("/product/:id", (req, res) =>
-    res.sendFile(path.join(__dirname, "../public/product.html")));
+router.get("/artists/:id", (req, res) =>
+    res.sendFile(path.join(__dirname, "../public/artists.html")));
 module.exports = router;
