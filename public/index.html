@@ -56,7 +56,7 @@
                                             <div class="form-group col-md-4">
                                                 <select class="w-100 form-control">
                                                     <option>Type of Band</option>
-                                                    <option value="1">Rock Band</option>
+                                                    <option selected="selected">Rock Band</option>
                                                     <option value="2">Indie Band</option>
                                                     <option value="4">Folk Band</option>
                                                 </select>
@@ -69,6 +69,7 @@
                                             <div class="form-group col-md-12 align-self-center">
                                                 <button type="submit" class="btn btn-primary">Find Your Band</button>
                                             </div>
+                                            <div id="bandType"></div>
                                         </div>
                                     </form>
                                 </div>
@@ -91,15 +92,14 @@
     </footer>
 
     <script>
-        $(document).ready(() => {
-            $.get("/api/products").then((results) => {
-                // build out some table or something
-                console.log(results);
-                $(".products").empty();
-                results.forEach(product => $(".products")
-                    .append(`<div><a href="/product/${product.id}">${product.name}</a> - $${product.price} <button data-product-id="${product.id}" class="btn btn-success">Add To Cart</div>`));
+        $("select").change(() => {
+            let str = "";
+            $("select option:selected").each(() => {
+                str += $(this).text() + " ";
             });
-        });
+            $("#bandType").text(str);
+        })
+            .change();
     </script>
 </body>
 
