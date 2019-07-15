@@ -12,25 +12,3 @@ CREATE TABLE artists(
   artistContactEmail VARCHAR(225) NOT NULL,
   PRIMARY KEY (id)
 );
-
-CREATE TABLE venues(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
-  venueName VARCHAR(225) NOT NULL,
-  venueLocation VARCHAR(225),
-  venueContactName VARCHAR(225),
-  venueContactPhone VARCHAR(10),
-  venueContactEmail VARCHAR(225),
-  PRIMARY KEY (id)
-);
-
-INSERT INTO venues (venueName, venueLocation, venueContactName, venueContactPhone, 
-venueContactEmail) 
-values ('Out of the Blue Art Gallery', 'Allston', 'Manager Name', '1236547898', 
-'manager@email.com');
-
-INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
-artistContactPhone, artistContactEmail) 
-values ('Targus Targus', 6, 'Allston', 'Dave H.', '2521565455', 'targus@email.com');
-
-SELECT * FROM artists;
-SELECT * FROM venues;

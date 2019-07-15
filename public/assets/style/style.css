@@ -1,4 +1,4 @@
-.bg-1 {
+.bg-home {
     background: url("../images/hero.jpg");
     background-attachment: fixed;
     background-position: center;
@@ -20,4 +20,16 @@ h1 {
     font-size: 60px;
     font-weight: bold;
     margin-bottom: 15px;   
+}
+
+.registration {
+  background-color: white;
+}
+
+.bg-reg {
+  background: url("../images/hero.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
