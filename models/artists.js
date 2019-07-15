@@ -1,8 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
   var Artist = sequelize.define("Artist", {
-    text: DataTypes.STRING,
-    complete: DataTypes.BOOLEAN
-  });
+    artistName: DataTypes.STRING,
+    // complete: DataTypes.BOOLEAN
+  },
+  {
+    timestamps: false,
+    // complete: false
+  }
+  
+  );
   return Artist;
 };
 

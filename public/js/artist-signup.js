@@ -122,7 +122,7 @@ $(document).ready(function() {
   function insertArtist(event) {
     event.preventDefault();
     var artist = {
-      text: $newItemInput.val().trim(),
+      artistName: $newItemInput.val().trim(),
       complete: false
     };
 

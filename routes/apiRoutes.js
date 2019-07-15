@@ -27,7 +27,7 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
     db.Artist.create({
-      text: req.body.text,
+      artistName: req.body.artistName,
       complete: req.body.complete
     }).then(function(dbArtist) {
       // We have access to the new todo as an argument inside of the callback function
@@ -54,7 +54,7 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.Artist.update({
-      text: req.body.text,
+      artistName: req.body.artistName,
       complete: req.body.complete
     }, {
       where: {
