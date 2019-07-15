@@ -122,11 +122,13 @@ $(document).ready(function() {
   // This function inserts a new todo into our database and then updates the view
   function insertArtist(event) {
     event.preventDefault();
-    var artist = {
+    var artist = {[
       artistName: $newItemInput.val().trim(),
       artistMembers: $newItemInput.val().trim(),
       complete: false
-    };
+    ]};
+
+    
 
     $.post("/api/artists", artist, getArtists);
     $newItemInput.val("");
