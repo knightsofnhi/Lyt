@@ -28,8 +28,11 @@
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.0"
+<<<<<<< HEAD
   },
   "directories": {
     "test": "test"
+=======
+>>>>>>> 02e109ed7c54763d502339477d66070ba750915a
   }
 }
