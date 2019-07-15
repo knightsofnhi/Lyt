@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,8 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-        <a class="navbar-brand" href="./index.html">Lyt - Find your band.</a>
+        <a class="navbar-brand" href="./index.html"><img src="./assets/images/LYT-transparent.png" width="50"
+                height="50" class="rounded-circle"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,16 +39,12 @@
         </div>
     </nav>
 
-    <section class="main-area bg-1 text-center overly" id="main-section">
+    <section class="main-area bg-home text-center overly py-5" id="main-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="content-block">
-                        <h1>Lyt</h1>
-                        <p>A curated booking concierge for venues to secure top local talent.</p>
-                    </div>
-
-                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-6 bg-white" id=user-area></div>
+                <div class="col-md-3"></div>
             </div>
         </div>
         </div>
@@ -62,6 +59,29 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCzkJqVyB5kTN0ZxBvkYrmAlEDE00EVARs",
+            authDomain: "lyt-findyourband.firebaseapp.com",
+            databaseURL: "https://lyt-findyourband.firebaseio.com",
+            projectId: "lyt-findyourband",
+            storageBucket: "lyt-findyourband.appspot.com",
+            messagingSenderId: "1009794232137",
+            appId: "1:1009794232137:web:35a0d950cc290695"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="./js/profile.js"></script>
+
 </body>
 
-</html> -->
+</html>
