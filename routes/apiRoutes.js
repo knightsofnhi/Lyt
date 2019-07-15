@@ -1,24 +1,54 @@
-var db = require("../models");
+// *********************************************************************************
+// api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// *********************************************************************************
 
+// Dependencies
+// =============================================================
+var Character = require("../models/character.js");
+
+// Routes
+// =============================================================
 module.exports = function (app) {
-  // Get all examples
-  app.get("/api/", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.json(dbExamples);
-    });
+  // Search for Specific Character (or all characters) then provides JSON
+  app.get("/api/:characters?", function (req, res) {
+    if (req.params.characters) {
+      // Display the JSON for ONLY that character.
+      // (Note how we're using the ORM here to run our searches)
+      Character.findOne({
+        where: {
+          routeName: req.params.characters
+        }
+      }).then(function (result) {
+        return res.json(result);
+      });
+    } else {
+      Character.findAll().then(function (result) {
+        return res.json(result);
+      });
+    }
   });
 
-  // Create a new example
-  app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
+  // If a user sends data to add a new character...
+  app.post("/api/new", function (req, res) {
+    // Take the request...
+    var character = req.body;
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.json(dbExample);
+    // Create a routeName
+
+    // Using a RegEx Pattern to remove spaces from character.name
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    var routeName = character.name.replace(/\s+/g, "").toLowerCase();
+
+    // Then add the character to the database using sequelize
+    Character.create({
+      routeName: routeName,
+      name: character.name,
+      role: character.role,
+      age: character.age,
+      forcePoints: character.forcePoints
     });
+
+    res.status(204).end();
   });
 };
+

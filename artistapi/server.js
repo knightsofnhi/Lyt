@@ -4,8 +4,10 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Band = require('./api/models/bandModel'), //created model loading here
     bodyParser = require('body-parser');
-
+//package path
+//app.use(express.static(path.join(_dirname, "public")))
 // mongoose instance connection url connection
+//router.get("/", (req.res) => {res.sendFile("index.html")})
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/lyt_db');
 

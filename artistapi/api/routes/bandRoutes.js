@@ -1,7 +1,9 @@
 'use strict';
 module.exports = function (app) {
     var band = require('../controllers/BandController');
-
+    app.get("/", function (req, res) {
+        res.sendFile("index.html")
+    })
     // Band Routes
     app.route('/bands')
         .get(band.list_all_bands)
