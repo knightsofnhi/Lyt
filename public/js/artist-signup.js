@@ -10,6 +10,7 @@ $(document).ready(function() {
   $(document).on("keyup", ".artist-item", finishEdit);
   $(document).on("blur", ".artist-item", cancelEdit);
   $(document).on("submit", "#artist-form", insertArtist);
+  $(document).on("submit", "#artist-members", insertArtist);
 
   // Our initial todos array
   var artists = [];
