@@ -1,21 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
-  const Artist = sequelize.define("Artist", {
-    text: {
-      type: DataTypes.STRING,
-      // AllowNull is a flag that restricts a Artist from being entered if it doesn't
-      // have a text value
-      allowNull: false,
-      // len is a validation that checks that our Artist is between 1 and 140 characters
-      validate: {
-        len: [1, 140]
-      }
-    },
-    complete: {
-      type: DataTypes.BOOLEAN,
-      // defaultValue is a flag that defaults a new Artists complete value to false if
-      // it isn't supplied one
-      defaultValue: false
-    }
+  var Artist = sequelize.define("Artist", {
+    text: DataTypes.STRING,
+    complete: DataTypes.BOOLEAN
   });
   return Artist;
 };
+
+// module.exports = function(sequelize, DataTypes) {
+//   const Lyt = sequelize.define("Lyt", {
+//     // Giving the Artists model a name of type STRING
+//     artistName: DataTypes.STRING,
+//     artistMembers: DataTypes.STRING,
+//     artistLocation: DataTypes.STRING,
+//     artistContactName: DataTypes.STRING,
+//     artistContactPhone: DataTypes.STRING,
+//     artistContactEmail: DataTypes.STRING
+//   });
+//   return Lyt;
+// };
