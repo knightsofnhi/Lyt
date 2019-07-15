@@ -35,4 +35,8 @@ INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactNam
 artistContactPhone, artistContactEmail) 
 values ('RH', 3, 'Los Angeles', 'James G.', '555-323-5245', 'james@rh.com');
 
+<<<<<<< HEAD
 SELECT * FROM artists;
+=======
+SELECT * FROM artists;
+>>>>>>> 3902f55f3176c97a12cc4a4d2f377234d39754f6
