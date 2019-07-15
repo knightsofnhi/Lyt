@@ -1,5 +1,6 @@
 $(document).ready(function() {
   // Getting a reference to the input field where user adds a new todo
+  debugger;
   var $newItemInput = $("input.new-item");
   var $newItemInput = $("input.new-item");
   // Our new todos will go inside the todoContainer
