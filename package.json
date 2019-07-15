@@ -2,7 +2,16 @@
   "name": "Project2JKN",
   "version": "1.0.0",
   "description": "No more bookers. No more Craigslist. No more middleman.",
-  "main": "index.js",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.10.1",
+    "sequelize-cli": "^5.5.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -17,17 +26,5 @@
   "bugs": {
     "url": "https://github.com/knightsofnhi/Project2JKN/issues"
   },
-  "homepage": "https://github.com/knightsofnhi/Project2JKN#readme",
-  "dependencies": {
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "mysql2": "^1.6.5",
-    "sequel": "^0.3.10",
-    "sequelize": "^5.9.4"
-  },
-  "devDependencies": {
-    "sequelize-cli": "^5.5.0"
-  },
-  "directories": {
-    "test": "test"
+  "homepage": "https://github.com/knightsofnhi/Project2JKN#readme"
+}
