@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1d0bdf401846d6074d3b1e70f3d7a04b54d21a83
 module.exports = function(sequelize, DataTypes) {
   var Artist = sequelize.define("Artist", {
     artistName: DataTypes.STRING,
@@ -26,6 +29,7 @@ module.exports = function(sequelize, DataTypes) {
 //   });
 //   return Lyt;
 // };
+<<<<<<< HEAD
 =======
 $("#band-submit").on("click", function (event) {
     event.preventDefault();
@@ -66,3 +70,5 @@ $("#band-submit").on("click", function (event) {
     $("#chirp-box").val("");
 });
 >>>>>>> 3902f55f3176c97a12cc4a4d2f377234d39754f6
+=======
+>>>>>>> 1d0bdf401846d6074d3b1e70f3d7a04b54d21a83
