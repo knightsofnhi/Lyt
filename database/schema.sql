@@ -17,6 +17,22 @@ CREATE TABLE artists(
 
 INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
 artistContactPhone, artistContactEmail) 
-values ('Targus Targus', 6, 'Allston', 'Dave H.', '2521565455', 'targus@email.com');
+values ('Targus Targus', 6, 'Boston', 'Dave H.', '2521565455', 'targus@email.com');
+
+INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
+artistContactPhone, artistContactEmail) 
+values ('Year of the Clam', 5, 'Boston', 'Sean James', '555-555-5245', 'sean@james.com');
+
+INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
+artistContactPhone, artistContactEmail) 
+values ('Miracle Blood', 3, 'Boston', 'Tomoharu T.', '555-555-4452', 'tomo@music.com');
+
+INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
+artistContactPhone, artistContactEmail) 
+values ('War Twins', 2, 'Los Angeles', 'Gaetana B.', '555-555-5245', 'gaetana@email.com');
+
+INSERT INTO artists (artistName, artistMembers, artistLocation, artistContactName, 
+artistContactPhone, artistContactEmail) 
+values ('RH', 3, 'Los Angeles', 'James G.', '555-323-5245', 'james@rh.com');
 
 SELECT * FROM artists;
