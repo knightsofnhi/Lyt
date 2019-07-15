@@ -10,6 +10,7 @@ CREATE TABLE artists(
   artistContactName VARCHAR(225) NOT NULL,
   artistContactPhone VARCHAR(15) NOT NULL,
   artistContactEmail VARCHAR(225) NOT NULL,
+  
   PRIMARY KEY (id)
 );
 

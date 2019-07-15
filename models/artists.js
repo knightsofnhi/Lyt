@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Artist = sequelize.define("Artist", {
     artistName: DataTypes.STRING,
+    artistMembers: DataTypes.STRING
     // complete: DataTypes.BOOLEAN
   },
   {

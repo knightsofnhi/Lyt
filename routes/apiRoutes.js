@@ -28,6 +28,7 @@ module.exports = function(app) {
     // and complete property
     db.Artist.create({
       artistName: req.body.artistName,
+      artistMembers: req.body.artistMembers,
       complete: req.body.complete
     }).then(function(dbArtist) {
       // We have access to the new todo as an argument inside of the callback function
@@ -55,6 +56,7 @@ module.exports = function(app) {
     // we use where to describe which objects we want to update
     db.Artist.update({
       artistName: req.body.artistName,
+      artistMembers: req.body.artistMembers,
       complete: req.body.complete
     }, {
       where: {

@@ -123,6 +123,7 @@ $(document).ready(function() {
     event.preventDefault();
     var artist = {
       artistName: $newItemInput.val().trim(),
+      artistMembers: $newItemInput.val().trim(),
       complete: false
     };
 
