@@ -1,5 +1,9 @@
 var userData = firebase.database();
 
+// inital value
+var currentBand = "";
+
+// on click when user signs up
 $("#band-submit").on("click", function () {
 
     var bandName = $("#band-name").val();
@@ -24,25 +28,28 @@ $("#band-submit").on("click", function () {
         email: email
     }
 
-    userData.ref().push(newBand);
-
-    console.log("new artist added");
+    // pushes user input data
+    userData.ref().set(newBand);
+    // console.log(newBand);
 
 });
 
-userData.ref().on("child_added", function (childSnapshot, prevChildKey) {
-    console.log(childSnapshot.val())
+// get snapshot of stored data
+userData.ref().on("value", function (snapshot) {
 
-    var tBandName = childSnapshot.val().bandName;
-    var tBandLocation = childSnapshot.val().bandLocation;
-    var tBandGenre = childSnapshot.val().bandGenre;
-    var tBandRates = childSnapshot.val().bandRates;
-    var tBandMembers = childSnapshot.val().bandMembers;
-    var tPhotoUrl = childSnapshot.val().photoUrl;
-    var tContactName = childSnapshot.val().contactName;
-    var tContactNumber = childSnapshot.val().contactNumber;
-    var tEmail = childSnapshot.val().email;
+    console.log(snapshot.val());
 
+    var tBandName = snapshot.val().bandName;
+    var tBandLocation = snapshot.val().bandLocation;
+    var tBandGenre = snapshot.val().bandGenre;
+    var tBandRates = snapshot.val().bandRates;
+    var tBandMembers = snapshot.val().bandMembers;
+    var tPhotoUrl = snapshot.val().photoUrl;
+    var tContactName = snapshot.val().contactName;
+    var tContactNumber = snapshot.val().contactNumber;
+    var tEmail = snapshot.val().email;
+
+    // render html to page
     $("#user-area").append(`<br><h2>Welcome to Lyt, ${tBandName}!</h2><br>
     <img src="${tPhotoUrl}"><br><br>
     Location: ${tBandLocation}<br>
@@ -52,4 +59,8 @@ userData.ref().on("child_added", function (childSnapshot, prevChildKey) {
     Contact name: ${tContactName}<br>
     Contact number: ${tContactNumber}<br>
     Contact email: ${tEmail}<br><br>`)
-})
+
+    // Handle the errors
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
