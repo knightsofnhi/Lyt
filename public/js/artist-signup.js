@@ -1,7 +1,9 @@
 $(document).ready(function() {
   // Getting a reference to the input field where user adds a new todo
-  var $newItemInput = $("input.new-item");
-  var $newItemInput = $("input.new-item");
+  debugger;
+  var newItemInput = $("input.new-item");
+  var newMembersInput = $("input#new-member");
+  var passwordInput = $("input#password-input");
   // Our new todos will go inside the todoContainer
   var $artistContainer = $(".artist-container");
   // Adding event listeners for deleting, editing, and adding todos
@@ -13,10 +15,14 @@ $(document).ready(function() {
   $(document).on("submit", "#artist-form", insertArtist);
 
   // Our initial todos array
-  var artists = [{
+  var artists = [
+    {
     "artistName": artistName,
+    },
+    {
     "artistMembers": artistMembers
-  }];
+    }
+  ];
   
   // Getting todos from database when page loads
   getArtists();
@@ -127,12 +133,12 @@ $(document).ready(function() {
     event.preventDefault();
     var artist = {
       artistName: $newItemInput.val().trim(),
-      artistMembers: $newItemInput.val().trim(),
+      artistMembers: $newMembersInput.val().trim(),
       complete: false
     };
 
     $.post("/api/artists", artist, getArtists);
     $newItemInput.val("");
-    $newItemInput.val("");
+    $newMembersInput.val("");
   }
 });
