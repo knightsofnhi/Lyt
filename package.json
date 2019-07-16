@@ -1,7 +1,7 @@
 {
   "name": "Project2JKN",
   "version": "1.0.0",
-  "description": "",
+  "description": "No more bookers. No more Craigslist. No more middleman.",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
