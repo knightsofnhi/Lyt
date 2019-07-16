@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/knightsofnhi/Project2JKN/issues"
   },
-  "homepage": "https://github.com/knightsofnhi/Project2JKN/public/index.html",
+  "homepage": "https://github.com/knightsofnhi/Project2JKN/#readme",
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
