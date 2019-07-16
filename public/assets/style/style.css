@@ -43,5 +43,6 @@ opacity: 0.9
 
 #results-table {
   color: black;
-  opacity: 0.9
+  opacity: 0.9;
+  font-size: small;
 }

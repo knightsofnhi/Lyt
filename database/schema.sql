@@ -5,11 +5,15 @@ USE lyt_db;
 CREATE TABLE artists(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
   artistName VARCHAR(225) NOT NULL,
-  artistMembers VARCHAR(255) NOT NULL,
-  -- artistLocation VARCHAR(225) NOT NULL,
-  -- artistContactName VARCHAR(225) NOT NULL,
-  -- artistContactPhone VARCHAR(15) NOT NULL,
-  -- artistContactEmail VARCHAR(225) NOT NULL,
+  bandName: VARCHAR(225) NOT NULL,
+  bandLocation: VARCHAR(225) NOT NULL,
+  bandGenre: VARCHAR(225) NOT NULL,
+  bandMembers: VARCHAR(225) NOT NULL,
+  photoUrl: VARCHAR(225) NOT NULL,
+  musicLink: VARCHAR(225) NOT NULL,
+  contactName: VARCHAR(225) NOT NULL,
+  contactNumber: VARCHAR(225) NOT NULL,
+  email: VARCHAR(225) NOT NULL,
   
   PRIMARY KEY (id)
 );
