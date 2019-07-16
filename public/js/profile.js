@@ -53,11 +53,11 @@ userData.ref().on("value", function (snapshot) {
     <img src="${tPhotoUrl}" height="200"><br><br>
     Location: ${tBandLocation}<br>
     Genre: ${tBandGenre}<br>
-    Link to music: ${tMusicLink}<br>
+    Link to music: <a href="${tMusicLink}">${tMusicLink}</a><br>
     Number of members: ${tBandMembers}<br><br>
     Contact name: ${tContactName}<br>
     Contact number: ${tContactNumber}<br>
-    Contact email: ${tEmail}<br><br>`)
+    Contact email: <a href="mailto:${tEmail}" target="_top">${tEmail}</a><br><br>`)
 
     // Handle the errors
 }, function (errorObject) {
