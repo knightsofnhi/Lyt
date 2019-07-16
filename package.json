@@ -1,5 +1,5 @@
 {
-  "name": "Project2JKN",
+  "name": "project2jkn",
   "version": "1.0.0",
   "description": "No more bookers. No more Craigslist. No more middleman.",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/knightsofnhi/Project2JKN.git"
   },
   "keywords": [
-    "Project2JKN",
+    "project2jkn",
     "heroku"
   ],
   "author": "",
