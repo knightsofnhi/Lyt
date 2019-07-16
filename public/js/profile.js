@@ -12,6 +12,7 @@ $("#band-submit").on("click", function () {
     var bandRates = $("#band-rates").val();
     var bandMembers = $("#band-members").val();
     var photoUrl = $("#photo-url").val().trim();
+    var musicLink = $("#music-link").val().trim();
     var contactName = $("#band-contact-name").val().trim();
     var contactNumber = $("#band-contact-number").val().trim();
     var email = $("#band-email").val().trim();
@@ -23,6 +24,7 @@ $("#band-submit").on("click", function () {
         bandRates: bandRates,
         bandMembers: bandMembers,
         photoUrl: photoUrl,
+        musicLink: musicLink,
         contactName: contactName,
         contactNumber: contactNumber,
         email: email
@@ -44,6 +46,7 @@ userData.ref().on("value", function (snapshot) {
     var tBandRates = snapshot.val().bandRates;
     var tBandMembers = snapshot.val().bandMembers;
     var tPhotoUrl = snapshot.val().photoUrl;
+    var tMusicLink = snapshot.val().musicLink;
     var tContactName = snapshot.val().contactName;
     var tContactNumber = snapshot.val().contactNumber;
     var tEmail = snapshot.val().email;
@@ -53,6 +56,7 @@ userData.ref().on("value", function (snapshot) {
     <img src="${tPhotoUrl}" height="200"><br><br>
     Location: ${tBandLocation}<br>
     Genre: ${tBandGenre}<br>
+    Link to music: ${tMusicLink}<br>
     Rates per hour: ${tBandRates}<br>
     Number of members: ${tBandMembers}<br><br>
     Contact name: ${tContactName}<br>
