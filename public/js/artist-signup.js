@@ -1,3 +1,8 @@
+app.get("/", function (req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+
+});
+
 $(document).ready(function() {
   // Getting a reference to the input field where user adds a new todo
   debugger;
