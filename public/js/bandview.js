@@ -5,13 +5,13 @@
 // when user hits the search-btn
 $("#searchbtn").on("click", function (e) {
     e.preventDefault();
-    debugger;
+
     // save the character they typed into the #bandsearch input
     var searchedBand = $("#bandsearch")
         .val()
         .trim();
     // Using a RegEx Pattern to remove spaces from searchedBand
-
+    debugger;
     searchedBand = searchedBand.replace(/\s+/g, "").toLowerCase();
 
     // run an AJAX GET-request for our servers api,
