@@ -5,19 +5,19 @@
       "database": "lyt_db",
       "host": "localhost",
       "port": 3306,
-      "dialect": "mysql"
+      "dialect": "mysql v4.0.0"
     },
     "test": {
       "username": "root",
       "password": "root",
       "database": "database_test",
       "host": "localhost",
-      "dialect": "mysql",
+      "dialect": "mysql v4.0.0",
       "logging": false
     },
     "production": {
       "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
+      "dialect": "mysql v4.0.0"
     }
   }
   
