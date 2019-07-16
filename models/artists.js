@@ -1,14 +1,16 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Artist = sequelize.define("Artist", {
     artistName: DataTypes.STRING,
-    artistMembers: DataTypes.STRING
-    // complete: DataTypes.BOOLEAN
-  },
-  {
-    timestamps: false,
-    // complete: false
+    bandName: DataTypes.STRING,
+    bandLocation: DataTypes.STRING,
+    bandGenre: DataTypes.STRING,
+    bandMembers: DataTypes.STRING,
+    photoUrl: DataTypes.STRING,
+    musicLink: DataTypes.STRING,
+    contactName: DataTypes.STRING,
+    contactNumber: DataTypes.STRING,
+    email: DataTypes.STRING
   }
-  
   );
   return Artist;
 };
