@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/knightsofnhi/Project2JKN.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Project2JKN",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
