@@ -12,6 +12,10 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
+  app.get("/", function (req, res) {
+    res.redirect("/artists");
+  })
+
   // GET route for getting all of the todos
   app.get("/api/artists", function (req, res) {
     // findAll returns all entries for a table when used with no options
