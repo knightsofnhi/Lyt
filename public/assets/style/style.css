@@ -40,3 +40,8 @@ background-size: cover;
 color:black;
 opacity: 0.9
 }
+
+#results-table {
+  color: black;
+  opacity: 0.9
+}
