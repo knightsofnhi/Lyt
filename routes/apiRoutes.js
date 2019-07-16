@@ -46,41 +46,41 @@ module.exports = function (app) {
     });
   });
 
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  // req.params.id
-  app.delete("/api/artists/:id", function (req, res) {
-    // We just have to specify which todo we want to destroy with "where"
-    db.Artist.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbArtist) {
-      res.json(dbArtist);
-    });
+  //   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  //   // req.params.id
+  //   app.delete("/api/artists/:id", function (req, res) {
+  //     // We just have to specify which todo we want to destroy with "where"
+  //     db.Artist.destroy({
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     }).then(function (dbArtist) {
+  //       res.json(dbArtist);
+  //     });
 
-  });
+  //   });
 
-  // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/artists", function (req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Artist.update({
-      bandName: req.body.bandName,
-      bandLocation: req.body.bandLocation,
-      bandGenre: req.body.bandGenre,
-      bandMembers: req.body.bandMembers,
-      photoUrl: req.body.photoUrl,
-      musicLink: req.body.musicLink,
-      contactName: req.body.contactName,
-      contactNumber: req.body.contactNumber,
-      email: req.body.email
-    }, {
-        where: {
-          id: req.body.id
-        }
-      }).then(function (dbArtist) {
-        res.json(dbArtist);
-      });
-  });
+  //   // PUT route for updating todos. We can get the updated todo data from req.body
+  //   app.put("/api/artists", function (req, res) {
+  //     // Update takes in an object describing the properties we want to update, and
+  //     // we use where to describe which objects we want to update
+  //     db.Artist.update({
+  //       bandName: req.body.bandName,
+  //       bandLocation: req.body.bandLocation,
+  //       bandGenre: req.body.bandGenre,
+  //       bandMembers: req.body.bandMembers,
+  //       photoUrl: req.body.photoUrl,
+  //       musicLink: req.body.musicLink,
+  //       contactName: req.body.contactName,
+  //       contactNumber: req.body.contactNumber,
+  //       email: req.body.email
+  //     }, {
+  //         where: {
+  //           id: req.body.id
+  //         }
+  //       }).then(function (dbArtist) {
+  //         res.json(dbArtist);
+  //       });
+  //   });
 
 };
