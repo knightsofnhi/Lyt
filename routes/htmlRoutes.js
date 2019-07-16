@@ -1,27 +1,33 @@
-var db = require("../models");
+// *********************************************************************************
+// html-routes.js - this file offers a set of routes for sending users to the various html pages
+// *********************************************************************************
 
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+// Dependencies
+// =============================================================
+const path = require("path");
+
+
+// Routes
+// =============================================================
+module.exports = function (app) {
+
+  // Each of the below routes just handles the HTML page that the user gets sent to.
+
+  // index route loads view.html
+  app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+/*/ add route loads the add.html page,
+// where users can enter new characters to the db
+app.get("/add", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/add.html"));
+});
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
+// all route loads the all.html page,
+// where all characters in the db are displayed
+app.get("/all", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/all.html"));
+});
+
+}; */}

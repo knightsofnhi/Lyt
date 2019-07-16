@@ -1,54 +1,46 @@
-require("dotenv").config();
-const express = require("express");
-const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
-const db = require("./models");
+// *********************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+// *********************************************************************************
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-const urlencoderParser = bodyParser.urlencoded({ extended: false });
-// Middleware
-app.use(express.urlencoded({ extended: false }));
+/*
+ *  STEPS TO SEQUELIZE THE STAR WARS APP.
+ *  1. Install the sequelize and mysql2 npm packages.
+ *  2. Delete the orm from config. In your app folder, create a model folder
+ *     with a character.js file in the model
+ *  3. In character.js, model out the character table, as detailed
+ *     in the schema.sql file located in the root of this project directory.
+ *  4. Remove all references to the old orm file,
+ *     and replace it with character.js
+ *  5. Use Sequelize methods in place of the orm calls
+ *     to retrieve and insert data.
+ *  6. Update connection.js to use sequelize instead of the mysql package.
+ *
+ * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ */
+
+// Dependencies
+// =============================================================
+var express = require("express");
+
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 8080;
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+// Static directory to be served
+app.use(express.static("app/public"));
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// =============================================================
+require("./app/routes/apiRoutes.js")(app);
 
-const syncOptions = { force: false };
+// Here we introduce HTML routing to serve different HTML files
+require("./app/routes/htmlRoutes.js")(app);
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function () {
-  app.listen(PORT, function () {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
 });
-
-app.post("/search", urlencodedParser, function (req, res) {
-  console.log(req.body);
-  res.render("search", { qs: req.query });
-})
-
-
-
-module.exports = app;
