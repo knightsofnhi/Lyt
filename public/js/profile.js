@@ -51,7 +51,7 @@ userData.ref().on("value", function (snapshot) {
 
     // render html to page
     $("#user-area").append(`<br><h2>Welcome to Lyt, ${tBandName}!</h2><br>
-    <img src="${tPhotoUrl}"><br><br>
+    <img src="${tPhotoUrl}" height="200"><br><br>
     Location: ${tBandLocation}<br>
     Genre: ${tBandGenre}<br>
     Rates per hour: ${tBandRates}<br>
