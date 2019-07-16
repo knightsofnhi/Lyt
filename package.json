@@ -2,10 +2,11 @@
   "name": "project2jkn",
   "version": "1.0.0",
   "description": "No more bookers. No more Craigslist. No more middleman.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/knightsofnhi/Project2JKN.git"
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/knightsofnhi/Project2JKN/issues"
   },
-  "homepage": "https://github.com/knightsofnhi/Project2JKN#readme",
+  "homepage": "https://github.com/knightsofnhi/Project2JKN/public/index.html",
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
