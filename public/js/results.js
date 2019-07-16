@@ -27,3 +27,7 @@ database.ref().orderByChild("bandLocation").equalTo("Boston").on("child_added", 
     </td>
     `)
 })
+
+$("#search-submit").on("click", function () {
+
+});
