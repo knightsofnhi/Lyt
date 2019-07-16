@@ -29,8 +29,7 @@ $("#band-submit").on("click", function () {
     }
 
     // pushes user input data
-    userData.ref().set(newBand);
-    // console.log(newBand);
+    userData.ref().update(newBand);
 
 });
 

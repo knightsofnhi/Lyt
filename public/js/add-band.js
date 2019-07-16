@@ -26,12 +26,12 @@ $("#band-submit").on("click", function () {
 
     userData.ref().push(newBand);
 
-    console.log("new artist added");
+    // console.log("new artist added");
 
 });
 
 userData.ref().on("child_added", function (childSnapshot, prevChildKey) {
-    console.log(childSnapshot.val())
+    //console.log(childSnapshot.val())
 
     var tBandName = childSnapshot.val().bandName;
     var tBandLocation = childSnapshot.val().bandLocation;
