@@ -33,19 +33,17 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function() {
-//   app.listen(PORT, function() {
-//     console.log(
-//       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-//       PORT,
-//       PORT
-//     );
-//   });
-// });
-
-// module.exports = app;
-
-
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+db.sequelize.sync(syncOptions).then(function() {
+  // app.listen(PORT, function() {
+  //   console.log(
+  //     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+  //     PORT,
+  //     PORT
+  //   );
+  // });
+  app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 });
+
+module.exports = app;
