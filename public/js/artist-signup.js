@@ -1,5 +1,5 @@
 app.get("/", function(req, res) {
-  res.json(path.join(__dirname, "public/artist-signup.html"));
+  res.json(path.join(__dirname, "./public/artist-signup.html"));
 });
 
 $(document).ready(function() {
