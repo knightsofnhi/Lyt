@@ -10,4 +10,4 @@ Artists can search for other musicians with whom to collaborate.
 
 Lyt puts talent directly into your hands.
 
-https://knightsofnhi.github.io/Project2JKN/public/index.html
+https://knightsofnhi.github.io/Lyt/
